@@ -1,0 +1,9 @@
+[project]
+name = "repo-downloader"
+version = "0.1.0"
+description = "A simple tool to download files and folders from github repos"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "requests>=2.33.1",
+]

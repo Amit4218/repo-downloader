@@ -1,6 +1,7 @@
 [project]
 name = "grd-init"
-version = "0.1.0"
+version = "0.1.2"
+readme = "README.md" 
 description = "Download subfolders and files from GitHub repos"
 authors = [{name = "Amit Bhagat"}]
 dependencies = [

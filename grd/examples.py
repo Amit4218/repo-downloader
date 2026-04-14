@@ -12,16 +12,16 @@ Here are the example usages:
 
 ### Examples
 ```bash
-rb folder --name "repo_folder_name" --link "github_repo_url"
-rb folder --n "repo_folder_name" --l "github_repo_url" --path "where_to_create"
-rb folder --n "repo_folder_name" --l "github_repo_url" --p "where_to_create" --branch "branch_name"
+grd folder --name "repo_folder_name" -link "github_repo_url"
+grd folder -n "repo_folder_name" -l "github_repo_url" --path "where_to_create"
+grd folder -n "repo_folder_name" -l "github_repo_url" --p "where_to_create" --branch "branch_name"
 ```
 
 ## Command: single
 
 ### Examples
 ```bash
-rb single --file "file_name" --link "github_repo_url"
-rb single --f "file_name" --l "github_repo_url"
+grd single --file "file_name" --link "github_repo_url"
+grd single -f "file_name" -l "github_repo_url"
 ```
 """

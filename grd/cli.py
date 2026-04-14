@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 from typing import Optional
 
@@ -5,8 +7,8 @@ from rich.console import Console
 from rich.markdown import Markdown
 from typer import Option, Typer
 
-from examples import HELP
-from utils import (
+from grd.examples import HELP
+from grd.utils import (
     create_file,
     create_folders,
     filter_results,
@@ -16,6 +18,7 @@ from utils import (
 
 app = Typer(
     help="A simple command line tool, that helps with downloading subfolder and files from github repos",
+    rich_markup_mode="rich",
 )
 
 console = Console()

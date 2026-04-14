@@ -1,10 +1,17 @@
 [project]
-name = "repo-downloader"
+name = "grd-init"
 version = "0.1.0"
-description = "A simple tool to download files and folders from github repos"
-readme = "README.md"
-requires-python = ">=3.14"
+description = "Download subfolders and files from GitHub repos"
+authors = [{name = "Amit Bhagat"}]
 dependencies = [
-    "requests>=2.33.1",
-    "typer>=0.24.1",
+    "typer",
+    "rich",
 ]
+requires-python = ">=3.10"
+
+[project.scripts]
+grd = "grd.cli:app"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

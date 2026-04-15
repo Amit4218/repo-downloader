@@ -48,7 +48,7 @@ pip install --user grd-init
 
 ---
 
-### Windows
+### Linux
 
 ```bash
 pip3 install grd-init

@@ -19,6 +19,8 @@ def create_file(raw_repo_link: str, file_name: str, path: str | None = None) -> 
     """request the raw.githubusercontent api, and create the file"""
     
     result = requests.get(f"{raw_repo_link}/{file_name}")
+    result.raise_for_status()
+    
     c_type = result.headers.get('Content-Type', '')
 
     file_path = os.path.join(path, file_name) if path else file_name

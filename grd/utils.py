@@ -1,5 +1,4 @@
-import os
-from typing import Dict, List, Literal
+from typing import Literal
 
 import requests
 
@@ -28,45 +27,3 @@ def get_repo_structure(url: str):
     return []
 
 
-def filter_results(filter: str, data: List[Dict]) -> Dict:
-    """filtes data through the folders for the provider filter"""
-    result = {"files": [], "dirs": []}
-
-    for d in data:
-        if filter in d["path"].split("/"):
-            if d["type"] == "tree":
-                result["dirs"].append(d["path"])
-            elif d["type"] == "blob":
-                result["files"].append(d["path"])
-
-    return result
-
-
-def create_file(raw_repo_link: str, file_name: str, path: str | None = None) -> None:
-    """
-    sends a request to the raw.githubusercontent api,<br>
-    creates the file and dumps the text in the file.
-
-    Args:
-        repo_link (str): modified github repo link
-        file_name (str): name of the file (extracted from the url)
-        path (str | None, optional): where the file should be created. Defaults to current dir.
-    """
-    result = requests.get(f"{raw_repo_link}/{file_name}")
-    file_path = f"{path}/{file_name}" if path else file_name
-
-    dir_name = os.path.dirname(file_path)
-    if dir_name and not os.path.exists(dir_name):
-        os.makedirs(dir_name, exist_ok=True)
-
-    with open(file=file_path, mode="w", encoding="utf-8") as f:
-        f.write(result.text)
-
-
-def create_folders(path: str, dirs: List) -> None:
-    """creates the folders while maintaining the folder structure"""
-    if not os.path.exists(path):
-        os.makedirs(path, exist_ok=True)
-
-    for dir in dirs:
-        os.makedirs(f"{path}/{dir}", exist_ok=True)

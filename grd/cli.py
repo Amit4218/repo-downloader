@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import time
 from typing import Optional
 
@@ -8,13 +6,8 @@ from rich.markdown import Markdown
 from typer import Option, Typer
 
 from grd.examples import HELP
-from grd.utils import (
-    create_file,
-    create_folders,
-    filter_results,
-    get_modified_url,
-    get_repo_structure,
-)
+from grd.file_operations import create_file, create_folders, filter_results
+from grd.utils import get_modified_url,get_repo_structure
 
 app = Typer(
     help="A simple command line tool, that helps with downloading subfolder and files from github repos",
